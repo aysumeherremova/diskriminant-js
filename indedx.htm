@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diskriminant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" id="a">x<sup>2</sup> +
+    <input type="text" id="b">x +
+    <input type="text" id="c">
+    <button onclick="hesabla()">=</button>
+
+    <h2 id="diskDiv">Diskriminant: </h2>
+    <h3 id="x1">x₁: </h3>
+    <h3 id="x2">x₂: </h3>
+
+    <script>
+        const a = document.getElementById("a")
+        const b = document.getElementById("b")
+        const c = document.getElementById("c")
+        const x1Div = document.getElementById("x1")
+        const x2Div = document.getElementById("x2")
+        const diskDiv = document.getElementById("diskDiv")
+
+        function hesabla() {
+            const disk = b.value ** 2 - (4 * a.value * c.value)
+            const x1 = (-b.value + Math.sqrt(disk)) / (2 * a.value)
+            const x2 = (-b.value - Math.sqrt(disk)) / (2 * a.value)
+
+            diskDiv.innerHTML = "Diskriminant: " + disk
+            x1Div.innerHTML = "x₁: " + x1.toFixed(2)
+            x2Div.innerHTML = "x₂: " + x2.toFixed(2)
+        }
+    </script>
+</body>
+
+</html>
